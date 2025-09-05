@@ -9,7 +9,6 @@ interface UseApiReturn<T> {
   loading: boolean;
   error: string | null;
   execute: (...args: any[]) => Promise<void>;
-  reset: () => void;
 }
 
 export function useApi<T>(
@@ -19,7 +18,6 @@ export function useApi<T>(
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const execute = useCallback(async (...args: any[]) => {
     setLoading(true);
     setError(null);
@@ -33,11 +31,7 @@ export function useApi<T>(
     }
   }, [apiFunction]);
 
-  const reset = useCallback(() => {
-    setData(null);
-    setError(null);
-    setLoading(false);
-  }, []);
+
 
   useEffect(() => {
     if (options.immediate) {
@@ -45,5 +39,5 @@ export function useApi<T>(
     }
   }, [execute, options.immediate]);
 
-  return { data, loading, error, execute, reset };
+  return { data, loading, error, execute };
 }

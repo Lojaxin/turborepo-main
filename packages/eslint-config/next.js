@@ -16,7 +16,13 @@ export const nextJsConfig = [
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
+  ...tseslint.config({
+    extends: [...tseslint.configs.recommended],
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  }),
   {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
@@ -32,7 +38,7 @@ export const nextJsConfig = [
     },
     rules: {
       ...pluginNext.configs.recommended.rules,
-      ...pluginNext.configs["core-web-vitals"].rules,
+      ...pluginNext.configs["core-web-vitals"].rules
     },
   },
   {

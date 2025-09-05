@@ -19,7 +19,7 @@ export default function Child() {
 
   return (
     <div>
-        <p>child</p>
+        <p>list</p>
         <p>{capitalize('hello world')}</p>
         <p>{`当前时间： ${time}`}</p>
         <Button onClick={() => router.push('/')}>返回首页</Button>

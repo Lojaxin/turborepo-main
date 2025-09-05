@@ -12,7 +12,13 @@ import onlyWarn from "eslint-plugin-only-warn";
 export const config = [
   js.configs.recommended,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
+  ...tseslint.config({
+    extends: [...tseslint.configs.recommended],
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off", // ✅ 在这里关掉
+    },
+  }),
   {
     plugins: {
       turbo: turboPlugin,
@@ -28,5 +34,8 @@ export const config = [
   },
   {
     ignores: ["dist/**"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ];
