@@ -3,15 +3,32 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:main": "turbo run build --filter=main",
+    "build:fund": "turbo run build --filter=fund",
     "dev": "turbo run dev",
+    "dev:main": "turbo run dev --filter=main",
+    "dev:fund": "turbo run dev --filter=fund",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
     "prettier": "^3.6.2",
     "turbo": "^2.5.6",
     "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^6.2.1",
+    "@mui/material": "^6.2.1",
+    "@mui/x-date-pickers": "^7.27.1",
+    "next": "^15.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
