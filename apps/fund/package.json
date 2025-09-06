@@ -13,7 +13,8 @@
   "dependencies": {
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
-    "@repo/hooks": "workspace:*"
+    "@repo/hooks": "workspace:*",
+    "@repo/i18n": "workspace:*"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
